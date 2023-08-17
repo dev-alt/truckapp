@@ -23,35 +23,23 @@ function App() {
 
 
       <Routes>
+      <Route path="/" element={<Home />} />
+
 
         {
-
           data.map(
-
             truck => (
-
-
-
               <Route key={truck.model}
 
                 path={`/${truck.model}`}
 
                 element={<Truck truck={truck} />}
-
               />
-
-
-
             ))
-
         }
-
       </Routes>
-
     </Router>
-
   );
-
 }
 
 export default App;
