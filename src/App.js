@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import Truck from "./Truck";
+
+import Home from "./Home";
+
+import Nav from "./Nav";
+
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+
+import data from "./data.json";
+
+
+
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+
+      <Nav data={data} />
+
+
+
+      <Routes>
+
+        {
+
+          data.map(
+
+            truck => (
+
+
+
+              <Route key={truck.model}
+
+                path={`/${truck.model}`}
+
+                element={<Truck truck={truck} />}
+
+              />
+
+
+
+            ))
+
+        }
+
+      </Routes>
+
+    </Router>
+
   );
+
 }
 
 export default App;
